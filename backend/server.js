@@ -1,8 +1,13 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const { connectDB } = require("./config/db");
 
 const newsRoutes = require("./routes/news");
 const authRoutes = require("./routes/auth");
+
+// Connect to MongoDB
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
